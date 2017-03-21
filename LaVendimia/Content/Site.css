@@ -1,0 +1,51 @@
+﻿
+    .txt-info {
+        background-color: #bce8f1 !important;
+    }
+
+    .txt-danger:hover {
+        background-color: #F0D8D8 !important;
+    }
+
+    .txt-danger {
+        background-color: #f2dede !important;
+    }
+
+    .txt-warning {
+        background-color: #fcf8e3 !important;
+    }
+
+    .txt-success {
+        background-color: #dff0d8 !important;
+    }
+
+.supplier-rate-a-plus {
+     color:rgb(0,119,170) !important;
+}
+.supplier-rate-a {
+    color: rgb(0,117,253)!important;
+}
+.supplier-rate-b-plus {
+    color: rgb(0,176,80) !important;
+}
+.supplier-rate-b {
+    color: rgb(146,208,80) !important;
+}
+.supplier-rate-c-plus {
+    color: rgb(255,255,0) !important;
+}
+.supplier-rate-c {
+    color: rgb(255,192,0) !important;
+}
+.supplier-rate-d-plus {
+    color: rgb(255,0,0) !important;
+}
+.supplier-rate-d {
+    color: rgb(192,0,0) !important;
+}
+.supplier-rate-e-plus {
+    color: rgb(112,48,60) !important;
+}
+.supplier-rate-e {
+    color: rgb(93,93,93) !important;
+} 

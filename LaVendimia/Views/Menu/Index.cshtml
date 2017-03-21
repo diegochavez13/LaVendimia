@@ -1,0 +1,230 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    @*<script type="text/javascript">
+        window.uLoadMenu = "@Url.Action("LoadMenu", "MainMenu")";
+    </script>*@
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery-2.0.3.min.js")" type="text/javascript"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/font-awesome.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/jquery-ui.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/chosen.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/datepicker.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/daterangepicker.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/ui.jqgrid.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/jquery.gritter.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/ace-fonts.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/ace.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/ace-rtl.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/ace-skins.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/DualListBox/css/bootstrap-duallistbox.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Checkbox/css/checkbox-x.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/colorbox.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/bootstrap-multiselect.css")" />
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" />
+    @*<link rel="stylesheet" href="@Url.Content("~/Content/icon-logo/style.css")" />*@
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/Bootstrap/Themes/Ace/css/fullcalendar.css")">
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/fullcalendar.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery-ui-1.10.3.custom.min.js")" type="text/javascript"></script>
+   
+
+    <style>
+        .clearable {
+            background: #fff url("../Content/ImagesCommon/icoX.gif") no-repeat right -10px center;
+            border: 1px solid #999;
+            padding: 3px 18px 3px 4px; /* Use the same right padding (18) in jQ! */
+            border-radius: 3px;
+            transition: background 0.4s;
+        }
+
+            .clearable.x {
+                background-position: right 5px center;
+            }
+            /* (jQ) Show icon */
+            .clearable.onX {
+                cursor: pointer;
+            }
+    </style>
+    <title>Main Menu</title>
+    <style>
+        .center- {
+            position: absolute;
+            top: 450%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+            .center- h1 {
+                font-size: 60px;
+            }
+
+        .navbar-fixed-top {
+            position: fixed;
+        }
+
+        .navbar-fixed-top {
+            margin-bottom: 0;
+        }
+
+        #nav-search {
+            height: 41px;
+        }
+
+        .system-alert {
+            position: absolute;
+            /*top: 10px;*/
+            left: 15%;
+            background: transparent;
+            color: red;
+            font-weight: bold;
+            width: 50%;
+            z-index: 1;
+        }
+
+            .system-alert > #msg {
+                float: left;
+                max-width: 80%;
+                font-size: 30px;
+            }
+
+            .system-alert > #timer {
+                float: right;
+                max-width: 19%;
+                font-weight: bold;
+                color: white;
+                display: none;
+            }
+
+        @@media (max-width: 991px) {
+            .system-alert {
+                background: rgba(176,169,169,0.8);
+                width: 100%;
+                left: 0%;
+            }
+
+                .system-alert > #timer {
+                    color: red;
+                }
+        }
+    </style>
+</head>
+<body id="mmBody">
+    <div class="main-container" id="main-container">
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="#">
+                <span class="menu-text"></span>
+            </a>
+            <div class="sidebar" id="sidebar">
+                <div class="nav-search" id="nav-search" style='padding: 6px 0px 0px 0px;'>
+                
+                </div>
+
+                <!--Variable content , this list is filled according to user permissions-->
+                <ul class="nav nav-list" id="customNavList">
+                    <!--The Menu Load Here-->
+                </ul>
+
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+                </div>
+            </div><!-- /sidebar -->
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb pull-right">
+                        <label id="lblCurrentDate"></label>    
+                    </ul><!-- .breadcrumb -->
+                </div>
+
+                <!--Variable content, This div is filled according to the selected functionality -->
+                <div class="page-content" id="page-content">
+                   
+                </div>
+            </div><!--main-contenet-->
+        </div><!-- /.main-container-inner -->
+    </div><!-- /.main-container -->
+
+
+    <div class="form-group">
+        <div class="row hide" id="grid-helper">
+            <div class="col-md-12">
+                <table id="grid-table"></table>
+                <div id="grid-pager"></div>
+            </div>
+        </div><!--end row-->
+    </div>
+
+    <div id="modalGlobalSettings" class="row hide">
+       
+        <div class="col-xs-12 col-md-12">
+            <div>
+                <select id="ddlProjectsMainMenu" class="form-control">
+                    <option value='-1' disabled selected></option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="modalMessageMain" class="row hide">
+
+    </div>
+
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/typeahead-bs2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery-ui-1.10.3.full.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.nestable.min.js")"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/date-time/bootstrap-datepicker.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/date-time/daterangepicker.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/date-time/moment.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/date-time/locales/bootstrap-datepicker.es.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jqGrid/jquery.jqGrid.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jqGrid/i18n/grid.locale-es.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/ace-elements.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/uncompressed/bootbox.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/ace-extra.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.gritter.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/Numeric.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jqGrid/grid.common.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.blockUI.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/ace.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.gritter.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/General/utilities.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/General/keypress.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Menu.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Resources/Scripts_Resources/General/Language_General.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.easy-pie-chart.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/flot/jquery.flot.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/flot/jquery.flot.pie.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/flot/jquery.flot.resize.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/flot/jquery.flot.time.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/flot/jquery.flot.tooltip.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/flot/jquery.flot.categories.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.maskedinput.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/chosen.jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.colorbox-min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/DualListBox/js/jquery.bootstrap-duallistbox.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.slimscroll.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.fileDownload.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/bootstrap-multiselect.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Content/dateFormat/jquery-dateFormat.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/dataTables.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.dataTables.bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/sticky-kit.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Content/html2canvas.min.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/Scripts/General/Service.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/General/CustomTags.js")" type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/General/utils.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/General/functions.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Content/Checkbox/js/checkbox-x.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/General/ACCO-Validator.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Content/fuzzyMatch.js")' type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Bootstrap/Themes/Ace/js/jquery.inputlimiter.1.3.1.min.js")"></script>
+</body>
+</html>

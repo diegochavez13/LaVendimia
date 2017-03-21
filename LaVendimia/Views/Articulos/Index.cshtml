@@ -1,0 +1,79 @@
+﻿<script src="@Url.Content("~/Scripts/Articulos.js")" type="text/javascript"></script>
+
+<style>
+    .ui-autocomplete {
+        height: 200px;
+        overflow-y: scroll;
+    }
+</style>
+<div class="container">
+    <div class="page-header">
+        <h1 id="title-page-content">
+            Articulos
+            <span id="optional-message-page-content">
+                <small>
+
+                    <i class="icon-double-angle-right"></i>
+                </small>
+            </span>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-offset-8 col-sm-4">
+                        <button class="btn btn-sm btn-primary" id="btnNuevo">
+                            <i class="icon-plus bigger-100"></i>
+                            <span id="lblNuevo">Nuevo Articulo</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-10" id="div-grid-Articulos">
+                            <table id="grid-Articulos"></table>
+                            <div id="pager-Articulos"></div>
+                        </div>
+                    </div><!--end row-->
+                </div>
+                <div class="hide" id="Modal-Preview">
+                </div>
+            </div><!--end form-horizontal-->
+        </div><!--end col-xs-12-->
+    </div><!--end row-->
+</div><!--end row-->
+
+<div class="col-xs-12">
+    <div class="hide" id="modal-Articulos">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label id="lblClaveArticulo" class="col-sm-2 col-xs-12 control-label col-md-offset-6 green"></label>
+            </div>
+            <div class="form-group">
+                <label id="lblDescripcion" class="col-sm-2 col-xs-12 control-label no-padding-right">Descripción</label>
+                <div class="col-md-4 col-xs-12">
+                    <input id="txtDescripcion" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+             <label id="lblModelo" class="col-sm-2 col-xs-12 control-label no-padding-right">Modelo</label>
+                <div class="col-md-4 col-xs-12">
+                    <input id="txtModelo" class="form-control"/>
+                </div>   
+            </div>
+             <div class="form-group">
+             <label id="lblPrecio" class="col-sm-2 col-xs-12 control-label no-padding-right">Precio</label>
+                <div class="col-md-2 col-xs-12">
+                    <input id="txtPrecio" class="form-control numde"/>
+                </div>   
+            </div>
+              <div class="form-group">
+             <label id="lblExistencia" class="col-sm-2 col-xs-12 control-label no-padding-right">Existencia</label>
+                <div class="col-md-1 col-xs-12">
+                    <input id="txtExistencia" class="form-control numint"/>
+                </div>   
+            </div>
+        </div>
+    </div>
+</div>
